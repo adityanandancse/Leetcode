@@ -1,8 +1,24 @@
 # LEETCODE
 # PROBLEM OF THE DAY SOLUTIONS
 
+# 3/11/2024
+# Question no. 796 Rotate String (https://leetcode.com/problems/rotate-string/)
+# Solution in Java:
+
+class Solution {
+
+    public boolean rotateString(String s, String goal) {
+    
+        return s.length() == goal.length() && (s + s).contains(goal);
+        
+        
+    }
+    
+}
+
+
 # 2/11/2024
-# Question no. 2490  (https://leetcode.com/problems/circular-sentence/)
+# Question no. 2490 Circular Sentence  (https://leetcode.com/problems/circular-sentence/)
 # Solution in C++:
 
 class Solution {
