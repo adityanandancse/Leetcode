@@ -1,38 +1,103 @@
 # LEETCODE
 # PROBLEM OF THE DAY SOLUTIONS
 
+# 13/11/2024
+# Question no. 2563 (https://leetcode.com/problems/count-the-number-of-fair-pairs/description/)
+# Solution in C++
+
+class Solution {
+
+public:
+
+    long long countFairPairs(vector<int>& nums, int lower, int upper) {
+    
+        int n = nums.size();
+        
+        sort(begin(nums), end(nums));
+        
+        long long result = 0;
+        
+
+        for(int i = 0; i < n; i++) {
+        
+            int idx = lower_bound(begin(nums) + i + 1, end(nums), lower-nums[i]) - begin(nums);
+            
+            int x = idx - 1 - i;
+            
+            idx = upper_bound(begin(nums) + i + 1, end(nums), upper-nums[i]) - begin(nums);
+            
+            int y = idx - 1 - i;
+            
+            result += (y-x);
+            
+        }
+        
+        return result;
+        
+    }
+    
+};
+
 # 12/11/2024
 # Question no. 2070 (https://leetcode.com/problems/most-beautiful-item-for-each-query/description/)
 # Solution in Java
 
 class Solution {
+
     public int[] maximumBeauty(int[][] items, int[] queries) {
+    
         Arrays.sort(items, (item1, item2) -> item1[0] - item2[0]);
+        
         for (int i = 1; i < items.length; ++i) {
+        
             items[i][1] = Math.max(items[i - 1][1], items[i][1]);
+            
         }
+        
             int queryCount = queries.length;
+            
             int[] answers = new int[queryCount];
+            
             for (int j = 0; j < queryCount; ++j) {
+            
                 int left = 0, right = items.length;
+                
                 while (left < right) {
+                
                     int mid = (left + right) >> 1;
+                    
                     if (items[mid][0] > queries[j]) {
+                    
                         right = mid;
+                        
                     }
+                    
                     else{
+                    
                         left = mid + 1;
+                        
                     }
+                    
                 }
+                
                 if (left > 0) {
+                
                     answers[j] = items[left - 1][1];
+                    
                 }
+                
                 else{
+                
                     answers[j] = 0;
+                    
                 }
+                
             }
+
             return answers;
+            
         }
+        
     }
 
 
