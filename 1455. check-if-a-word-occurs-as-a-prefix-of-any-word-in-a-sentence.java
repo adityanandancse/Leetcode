@@ -1,6 +1,6 @@
-2/12/2024
-  Question no. 1455 (https://leetcode.com/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence/description/)
-                     Solution in Java :
+// 2/12/2024
+//   Question no. 1455 (https://leetcode.com/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence/description/)
+//                      Solution in Java :
 
     class Solution {
     class TrieNode {
